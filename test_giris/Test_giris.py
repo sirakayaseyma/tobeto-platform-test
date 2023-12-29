@@ -21,6 +21,16 @@ class Test_giris_kontrol:
                   sifre = sheet.cell(i,2).value
                   data.append((eposta,sifre))
                 return data
+        def getValidData():
+                giris_excel = openpyxl.load_workbook("data/giris.xlsx")
+                sheet = giris_excel["basarili"]
+                rows = sheet.max_row
+                data = []
+                for i in range(2,rows+1):
+                  eposta = sheet.cell(i,1).value
+                  sifre = sheet.cell(i,2).value
+                  data.append((eposta,sifre))
+                return data
         
 
         def  giris_ekrani(self):
@@ -28,13 +38,14 @@ class Test_giris_kontrol:
             self.driver.get("https://tobeto.com/giris")
             self.driver.maximize_window() 
             
-        def test_basarili_giris(self):
+        @pytest.mark.parametrize("eposta,sifre" , getValidData())    
+        def test_basarili_giris(self,eposta,sifre):
             self.giris_ekrani()
             email = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.NAME, gc.NAME_TAG)))
-            email.send_keys("sirakaya.seymaa@gmail.com")
+            email.send_keys(eposta)
             sleep(3)
             psw = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.PSW_TAG)))
-            psw.send_keys("Osman.123")
+            psw.send_keys(sifre)
             loginbutton = self.driver.find_element(By.XPATH, gc.GIRIS_YAP_XPATH)
             loginbutton.click()
             sleep(4)
