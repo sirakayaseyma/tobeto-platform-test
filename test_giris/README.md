@@ -55,4 +55,5 @@
 
 
 ## PYTEST KONTROLÜ 
-![basarılıbasarısızbos](https://github.com/sirakayaseyma/tobeto-platform-test/assets/76254345/91f3bb39-bfd3-47b4-a387-7d86e23eeebe)
+![pytest](https://github.com/sirakayaseyma/tobeto-platform-test/assets/76254345/0505e749-d651-47f6-be89-31b169d78bb0)
+
