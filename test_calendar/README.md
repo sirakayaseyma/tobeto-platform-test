@@ -17,8 +17,11 @@
 #### Adımlar:
 #### 1-) Kapat simgesine tıklayın.
 
+
 ![Alt text](images/kapatmaikonu.png)
 
 #### Beklenen Sonuç:Kullanıcı https://tobeto.com/ sayfasına yönlendirilmelidir.
 
 ## PYTEST KONTROLÜ 
+![pytest_test_calendar](https://github.com/sirakayaseyma/tobeto-platform-test/assets/76254345/cafcb405-f8ce-439a-ad35-6f058a50cb17)
+
