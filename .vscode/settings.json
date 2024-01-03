@@ -1,6 +1,6 @@
 {
     "python.testing.pytestArgs": [
-        "."
+        "test_calendar"
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.pytestEnabled": true
