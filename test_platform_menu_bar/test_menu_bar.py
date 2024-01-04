@@ -8,7 +8,7 @@ from constants import globalConstants as gc
 import pytest
 from selenium.webdriver.common.alert import Alert
 
-class test_menu_bar:   
+class Test_menu_bar:   
         def  giris_ekrani(self):
             self.driver = webdriver.Chrome()
             self.driver.get("https://tobeto.com/giris")
