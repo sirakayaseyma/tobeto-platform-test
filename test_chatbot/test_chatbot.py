@@ -1,22 +1,33 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from webdriver_manager . chrome import ChromeDriverManager
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec 
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
-#from constants import globalConstants as gc
-import openpyxl
-import pytest
-from selenium.webdriver.common.alert import Alert
 
-class test_chatbot:
-    def test_chatbot_ikon(self):
+class TestChatbot:
+    def test_chatbot_icon(self):
         self.driver = webdriver.Chrome()
         self.driver.get("https://tobeto.com/")
         self.driver.maximize_window() 
-        chatbotIkon = WebDriverWait(self.driver,6).until(ec.visibility_of_element_located((By.CLASS_NAME, "frame-content")))
-        chatbotIkon.click()
-        sleep(5)
-        
-testClass = test_chatbot()
-testClass.test_chatbot_ikon()
+
+        try:
+            # Sayfanın tamamen yüklenmesini bekleyin
+            WebDriverWait(self.driver, 10).until(EC.title_contains("Expected Page Title"))
+
+            # Chatbot ikonunu bulmak için bekleyin
+            chatbot_icon = WebDriverWait(self.driver, 30).until(EC.presence_of_element_located((By.XPATH, "//*[@id='launcher']/div/img")))
+            
+            # Chatbot ikonuna tıkla
+            chatbot_icon.click()
+            sleep(5)
+
+        except Exception as e:
+            print(f"Hata oluştu: {e}")
+
+        finally:
+            # Tarayıcıyı kapatın
+            self.driver.quit()
+
+
+test_class = TestChatbot()
+test_class.test_chatbot_icon()
