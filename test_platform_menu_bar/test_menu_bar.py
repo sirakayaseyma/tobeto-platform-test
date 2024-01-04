@@ -68,7 +68,5 @@ class test_menu_bar:
             
         # => Profil Bilgileri ve Oturum kapat kodları yazılacak
 
-testClass = test_menu_bar()
-testClass.test_menu_bar_ikon()
-testClass.test_tobeto_ikon()
+
             
