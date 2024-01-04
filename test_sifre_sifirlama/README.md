@@ -1,4 +1,4 @@
-## Test senaryosu : Şifresini unutan kullanıcın şifresini yenileyebilme işlemi test edilecektir.
+## Test senaryosu : Şifresini unutan kullanıcının ve kullanıcı olmayan kişinin şifresini yenileyebilme işlemi test edilecektir. 
 #### Açıklama: Kullanıcının geçerli veya geçersiz e-postalar ile şifresini yenileyebilmesi durumu kontrol edilecektir.
 ### Ön koşul: Web ekranında https://tobeto.com/giris sayfası açık olmalıdır.
               
