@@ -110,7 +110,7 @@
 ####  Input: osmasirakaya@gmail.com (kayıtlı olmayan e_posta hesabı)
 #### 4.	Şifre alanını doldurun
 ####  Input:1234
-#### 5.	şifre tekrarı alanını doldurun
+#### 5.	Şifre tekrarı alanını doldurun
 ####  Input:1234
 #### 6. Kayıt ol butonuna tıklayın
 #### 7. ‘Açık Rıza Metni’ni okudum ve anladım.* ‘ onay kutusunu işaretleyin
@@ -135,7 +135,7 @@
 ####  Input: osmasirakaya@gmail.com (kayıtlı olmayan e_posta hesabı)
 #### 4.	Şifre alanını doldurun
 ####  Input:1234567
-#### 5.	şifre tekrarı alanını doldurun
+#### 5.	Şifre tekrarı alanını doldurun
 ####  Input:123456
 #### 6. Kayıt ol butonuna tıklayın
 #### 7. ‘Açık Rıza Metni’ni okudum ve anladım.* ‘ onay kutusunu işaretleyin
@@ -161,7 +161,7 @@
 ####  Input: sirakaya.seymaa@gmail.com (kayıtlı e_posta hesabı)
 #### 4.	Şifre alanını doldurun
 ####  Input:1234
-#### 5.	şifre tekrarı alanını doldurun
+#### 5.	Şifre tekrarı alanını doldurun
 ####  Input:1234
 #### 6. Kayıt ol butonuna tıklayın
 #### 7. ‘Açık Rıza Metni’ni okudum ve anladım.* ‘ onay kutusunu işaretleyin
@@ -175,3 +175,7 @@
 #### Beklenen sonuç: Kullanıcı "2 errors occurred" uyarısı almalıdır.
 
 ![Alt text](images/twoerros.png)
+
+
+## PYTEST KONTROLÜ 
+![Alt text](images/pytest.png)

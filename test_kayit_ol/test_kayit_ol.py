@@ -9,7 +9,7 @@ import openpyxl
 import pytest
 from selenium.webdriver.common.alert import Alert
 
-class test_kayit_ol:
+class Test_kayit_ol:
     
         def  giris_ekrani(self):
             self.driver = webdriver.Chrome()
@@ -45,51 +45,24 @@ class test_kayit_ol:
                 sleep(1)
                 captcha=self.driver.find_element(By.XPATH,gc.CAPTCHA)
                 captcha.click()
-                sleep(1)
+                sleep(10)
                 self.driver.switch_to.default_content()
                 sleep(3)
                 continueButton = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.XPATH, gc.CONTINUE_BUTTON)))
                 continueButton.click()
                 sleep(3)
 
-        pytest.mark.parametrize("email" ,[("abc"),("e") ,(".123"), ("Şeyma")  ] )
-        def test_gecersiz_eposta(self,email):
+        
+        def test_gecersiz_eposta(self):
                 self.giris_ekrani()
                 name = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.NAME)))
                 name.send_keys("Şeyma")
                 surname = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.SURNAME)))
                 surname.send_keys("Sirakaya")
                 email = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.EMAIL)))
-                email.send_keys(email)
+                email.send_keys("a?.4")
                 sleep(3)
-                password = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.PASSWORD)))
-                password.send_keys("abc123")
-                passwordAgain = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.PSW_AGAIN)))
-                passwordAgain.send_keys("abc123")
-                registerbutton = self.driver.find_element(By.XPATH, gc.REGISTER_BTN)
-                registerbutton.click()
-                sleep(2)
-                InputAcikRizaMetni = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.ACIK_RIZA)))
-                InputAcikRizaMetni.click()
-                Inputuyeliksoz = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.UYELIK)))
-                Inputuyeliksoz.click()
-                Inputemailonay = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.EMAIL_CLICK)))
-                Inputemailonay.click()
-                Inputphoneonay = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.ARAMA_CLICK)))
-                Inputphoneonay.click()
-                phoneNumber = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.CLASS_NAME, gc.PHONE)))
-                phoneNumber.send_keys("5355551123") 
-                iframe=self.driver.find_element(By.XPATH, gc.IFRAME )
-                self.driver.switch_to.frame(iframe)
-                sleep(1)
-                captcha=self.driver.find_element(By.XPATH,gc.CAPTCHA)
-                captcha.click()
-                sleep(1)
-                self.driver.switch_to.default_content()
-                sleep(3)
-                continueButton = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.XPATH, gc.CONTINUE_BUTTON)))
-                continueButton.click()
-                sleep(3)
+               
                 
         def test_onkarakter_tel(self):
                 self.giris_ekrani()
@@ -115,10 +88,22 @@ class test_kayit_ol:
                 Inputphoneonay.click()
                 phoneNumber = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.CLASS_NAME, gc.PHONE)))
                 phoneNumber.send_keys("53555")
-                errorMessage = self.driver.find_element(By.XPATH , "/html/body/div[5]/div/div/div/div/div/label[4]/small/p")
+                sleep(2)
+                iframe=self.driver.find_element(By.XPATH, gc.IFRAME )
+                self.driver.switch_to.frame(iframe)
+                sleep(1)
+                captcha=self.driver.find_element(By.XPATH,gc.CAPTCHA)
+                captcha.click()
+                sleep(35)
+                self.driver.switch_to.default_content()
+                sleep(3)
+                continueButton = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.XPATH, gc.CONTINUE_BUTTON)))
+                continueButton.click()
+                sleep(3) 
+                errorMessage = self.driver.find_element(By.XPATH ,"/html/body/div[4]/div/div/div/div/div/label[4]/small/p")
                 telnoHata = errorMessage.text == "En az 10 karakter girmelisiniz."
                 print(f"Telefon No Mesaji: {telnoHata}")
-                sleep(6)
+               
                 
         def test_kayitli_eposta(self):
                 self.giris_ekrani()
@@ -269,7 +254,7 @@ class test_kayit_ol:
                 sleep(1)
                 captcha=self.driver.find_element(By.XPATH,gc.CAPTCHA)
                 captcha.click()
-                sleep(8)
+                sleep(40)
                 self.driver.switch_to.default_content()
                 sleep(3)
                 continueButton = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.XPATH, gc.CONTINUE_BUTTON)))

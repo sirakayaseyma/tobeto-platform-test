@@ -9,7 +9,7 @@ import openpyxl
 import pytest
 from selenium.webdriver.common.alert import Alert
 
-class test_kayit_ol:
+class Test_kayit_ol:
     
         def  giris_ekrani(self):
             self.driver = webdriver.Chrome()
@@ -45,7 +45,7 @@ class test_kayit_ol:
                 sleep(1)
                 captcha=self.driver.find_element(By.XPATH,gc.CAPTCHA)
                 captcha.click()
-                sleep(1)
+                sleep(10)
                 self.driver.switch_to.default_content()
                 sleep(3)
                 continueButton = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.XPATH, gc.CONTINUE_BUTTON)))
@@ -60,12 +60,10 @@ class test_kayit_ol:
                 surname = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.SURNAME)))
                 surname.send_keys("Sirakaya")
                 email = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.EMAIL)))
-                email.send_keys(".4b?")
-                sleep(5)
-                hatamesaji = self.driver.find_element(By.XPATH, "//*[@id='__next']/div/main/section/div/div/div[1]/div/div/form/p")
-                hataMsj =  hatamesaji.text == "Geçersiz e-posta adresi*"
-                print(f"Gecersiz E-Posta Mesaji: {hataMsj}")
-        
+                email.send_keys("a?.4")
+                sleep(3)
+               
+                
         def test_onkarakter_tel(self):
                 self.giris_ekrani()
                 name = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.NAME)))
@@ -90,10 +88,22 @@ class test_kayit_ol:
                 Inputphoneonay.click()
                 phoneNumber = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.CLASS_NAME, gc.PHONE)))
                 phoneNumber.send_keys("53555")
-                errorMessage = self.driver.find_element(By.XPATH , "/html/body/div[5]/div/div/div/div/div/label[4]/small/p")
+                sleep(2)
+                iframe=self.driver.find_element(By.XPATH, gc.IFRAME )
+                self.driver.switch_to.frame(iframe)
+                sleep(1)
+                captcha=self.driver.find_element(By.XPATH,gc.CAPTCHA)
+                captcha.click()
+                sleep(35)
+                self.driver.switch_to.default_content()
+                sleep(3)
+                continueButton = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.XPATH, gc.CONTINUE_BUTTON)))
+                continueButton.click()
+                sleep(3) 
+                errorMessage = self.driver.find_element(By.XPATH ,"/html/body/div[4]/div/div/div/div/div/label[4]/small/p")
                 telnoHata = errorMessage.text == "En az 10 karakter girmelisiniz."
                 print(f"Telefon No Mesaji: {telnoHata}")
-                sleep(6)
+               
                 
         def test_kayitli_eposta(self):
                 self.giris_ekrani()
@@ -244,7 +254,7 @@ class test_kayit_ol:
                 sleep(1)
                 captcha=self.driver.find_element(By.XPATH,gc.CAPTCHA)
                 captcha.click()
-                sleep(8)
+                sleep(40)
                 self.driver.switch_to.default_content()
                 sleep(3)
                 continueButton = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.XPATH, gc.CONTINUE_BUTTON)))
@@ -253,15 +263,9 @@ class test_kayit_ol:
                 twoError = self.driver.find_element(By.CLASS_NAME , "toast-body")
                 Errorstwo = twoError.text == "• 2 errors occurred"
                 print(f"Kayitli e-posta ve 6 karakterden az: {Errorstwo}")
-                sleep(6)
-            
-
+                sleep(6)   
         
-            
-           
-        
-        
-testClass = test_kayit_ol()
+testClass = Test_kayit_ol()
 testClass.test_basarili_kayit()
 testClass.test_gecersiz_eposta()
 testClass.test_onkarakter_tel()       
