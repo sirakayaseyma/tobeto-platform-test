@@ -8,13 +8,13 @@ from time import sleep
 class test_Chatbot:
     def giris(self):
         self.driver = webdriver.Chrome()
-        self.driver.get("https://tobeto.com/")
+        self.driver.get("https://tobeto.com/giris")
         self.driver.maximize_window() 
     
-    # İkonun açılabilmesini sorgulamak için kullanılır.
-    def test_chatbot_icon(self):
+    def test_chatbot_icon_open(self):
+    
         self.giris()
-        wait = WebDriverWait(self.driver, 15)   # Maksimum bekleme süresi (saniye cinsinden)
+        wait = WebDriverWait(self.driver, 10)   # Maksimum bekleme süresi (saniye cinsinden)
         
         # İframe geçişini beklemek için implicit veya explicit bekleme kullanabilirsiniz.
         iframe = wait.until(EC.presence_of_element_located((By.ID, "exw-launcher-frame")))
@@ -23,24 +23,91 @@ class test_Chatbot:
         # İçeriklerin yüklenmesini beklemek için explicit bekleme kullanabilirsiniz.
         launcher_button = wait.until(EC.element_to_be_clickable((By.ID, "launcher")))
         launcher_button.click()
-        sleep(10)
-                   
-    def test_chatbot_kapama(self):
-            self.test_chatbot_icon()
-            sleep(5)
+        sleep(5)
         
-        # CSS selektörü kullanarak SVG öğesini bulma
-            svg_element = self.driver.find_element(By.XPATH, "//*[@id='exw-conversation-frame-body']/div/div/div/div[1]/div/div[2]/svg[1]")
+    def test_chatbot_icon_close(self):
+        self.test_chatbot_icon_open()
+        self.driver.switch_to.default_content()
+        wait = WebDriverWait(self.driver, 20)
 
-        # SVG üzerinde tıklama
-            if svg_element:
-                svg_element.click()
+        iframe = wait.until(EC.presence_of_element_located((By.ID, "exw-conversation-frame")))
+        self.driver.switch_to.frame(iframe)
 
-            # WebDriver'ı kapatma
-            self.driver.quit()
-                    
+        # SVG elemanını bekleyerek bul
+        svg_element = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[name()='svg' and @class='exw-minimize-button header-button']")))
+        svg_element.click()
+
+        sleep(5)  # Bekleme süresini ihtiyacınıza göre ayarlayabilirsiniz.
+
+
+    def test_uyari_mesaj(self):
+        self.test_chatbot_icon_open()
+        self.driver.switch_to.default_content()
+        wait = WebDriverWait(self.driver, 20)
+
+        iframe = wait.until(EC.presence_of_element_located((By.ID, "exw-conversation-frame")))
+        self.driver.switch_to.frame(iframe)
+
+        # SVG2 elemanını bekleyerek bul
+        svg_element2 = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[name()='svg' and @class='exw-end-session-button header-button']")))
+        svg_element2.click()
+
+        sleep(5)  # Bekleme süresini ihtiyacınıza göre ayarlayabilirsiniz.
+        
+        #EVET Butonuna Tıklama 
+        # yes_Btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//*[@id='exw-conversation-frame-body']/div/div/div/div[1]/div/div[3]/div/button[1]")))
+        # yes_Btn.click()
+        # sleep(3)
+
+        
+        #HAYIR Butonuna Tıklama 
+        # no_Btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//*[@id='exw-conversation-frame-body']/div/div/div/div[1]/div/div[3]/div/button[2]")))
+        # no_Btn.click()
+        # sleep(3)
+        
+    def test_evet_gorus(self):
+        self.test_chatbot_icon_open()
+        self.driver.switch_to.default_content()
+        wait = WebDriverWait(self.driver, 20)
+
+        iframe = wait.until(EC.presence_of_element_located((By.ID, "exw-conversation-frame")))
+        self.driver.switch_to.frame(iframe)
+
+        # SVG2 elemanını bekleyerek bul
+        svg_element2 = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[name()='svg' and @class='exw-end-session-button header-button']")))
+        svg_element2.click()
+
+        sleep(5)  # Bekleme süresini ihtiyacınıza göre ayarlayabilirsiniz.
+        
+        #EVET Butonuna Tıklama 
+        yes_Btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//*[@id='exw-conversation-frame-body']/div/div/div/div[1]/div/div[3]/div/button[1]")))
+        yes_Btn.click()
+        sleep(7)
+        
+        gorus_input = wait.until(EC.visibility_of_element_located((By.XPATH, "//*[@id='surveyTextArea']")))
+        gorus_input.send_keys("TOBETO harika bir platform")
+        sleep(15)
+        
+        # gndr_btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//*[@id='surveyBtn']")))
+        # gndr_btn.click()
+        # sleep(3)
+        
+        # message = self.driver.find_element(By.XPATH, "//*[@id='exw-messages']/div[2]/div/div/div/h3")
+        # gorusmesaji =  message.text == "Geri bildiriminiz için teşekkürler!"
+        # print(f"Görüş Bildirimi : {gorusmesaji}")
+        
+        
+        sleep(5)
+        
+        
+        
+
+        
+       
+test_class = test_Chatbot()
+test_class.test_evet_gorus()
+    
+    
+                
          
              
-test_class = test_Chatbot()
-test_class.test_chatbot_icon()
-#test_class.test_chatbot_kapama()
