@@ -34,7 +34,7 @@ class Test_giris_kontrol:
             email.send_keys("sirakaya.seymaa@gmail.com")
             sleep(3)
             psw = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.PSW_TAG)))
-            psw.send_keys("****")
+            psw.send_keys("123456")
             loginbutton = self.driver.find_element(By.XPATH, gc.GIRIS_YAP_XPATH)
             loginbutton.click()
             sleep(4)
