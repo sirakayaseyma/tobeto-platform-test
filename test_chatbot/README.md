@@ -32,6 +32,23 @@
 #### 1) Görüşmeyi bitirmek istediğinize emin misiniz? Uyarı mesajında “Evet” butonuna tıklayın.
 #### Beklenen Sonuç:Ekranda görüşme hakkında geri bildirim almak için mesaj ekranına puanlama tablosu gelmelidir.
 
+##### Evet Butonu Tıklanmalı
+
+![Alt text](images/gorusme_evet.png)
+
+![Alt text](images/degerlendirme.png)
+
+## Test Case 4: Hayır Butonu Kontrolü
+#### Ön Koşul: Mesajlaşma bitirme ikonuna basılmış olmalıdır.
+#### Adımlar:
+#### 1) Görüşmeyi bitirmek istediğinize emin misiniz? Uyarı mesajında “Hayır” butonuna tıklayın.
+#### Beklenen Sonuç:Ekranda görüşmeye devam edeceğiniz mesajlaşma kısmı açık olmalıdır.Ekrana isim girilip konuşma devam ettirilebilmelidir.
+
+##### Hayır Butonuna Tıklanmalı
+
+![Alt text](images/gorusme_hayir.png)
+
+
 
 ## Chatbot Açma Kapama Pytest Kontrolü
 ![Alt text](images/acmakapamapytest.png)

@@ -88,13 +88,13 @@ class Test_Chatbot:
         gorus_input.send_keys("TOBETO harika bir platform")
         sleep(10)
         
-        gndr_btn = wait.until(EC.visibility_of_element_located((By.ID, "surveyBtn")))
-        gndr_btn.click()
+        gndr_btn = wait.until(EC.visibility_of_element_located((By.XPATH, "//*[@id='surveyForm']//*[@id='surveyBtn']")))
+        self.driver.execute_script("arguments[0].click();", gndr_btn)
        
         
-        # message = self.driver.find_element(By.XPATH, "//*[@id='exw-messages']/div[2]/div/div/div/h3")
-        # gorusmesaji =  message.text == "Geri bildiriminiz için teşekkürler!"
-        # print(f"Görüş Bildirimi : {gorusmesaji}")
+        message = self.driver.find_element(By.XPATH, "//*[@id='exw-messages']/div[2]/div/div/div/h3")
+        gorusmesaji =  message.text == "Geri bildiriminiz için teşekkürler!"
+        print(f"Görüş Bildirimi : {gorusmesaji}")
         
         
         sleep(5)
