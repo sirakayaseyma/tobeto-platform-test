@@ -20,7 +20,7 @@ class test_senkron:
             email.send_keys("sirakaya.seymaa@gmail.com")
             sleep(2)
             psw = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.NAME, gc.PSW_TAG)))
-            psw.send_keys("****")
+            psw.send_keys("*****")
             loginbutton = self.driver.find_element(By.XPATH, gc.GIRIS_YAP_XPATH)
             loginbutton.click()
             sleep(2)
@@ -37,21 +37,28 @@ class test_senkron:
             senkron.click()
             sleep(10)
         
-        #begen butonu kotnrolü
+        #begen butonu kotnrolü , buton beğenilmediyse
         def test_senkron_begen(self):
-            self.test_senkron()
+            self.test_senkron_login()
             ikon_like = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.CLASS_NAME, gc.IKON_LIKE)))
             ikon_like.click()
             sleep(3)
         
+        #begen butonu kontrolü , buton beğenildiyse
+        def test_senkron_begen_gerial(self):
+            self.test_senkron_login()
+            ikon_dislike = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH, gc.IKON_DISLIKE)))
+            ikon_dislike.click()
+            sleep(3)
+        
         #begenen kisileri görüntüleme
         def test_begen_kisi(self):
-            self.test_senkron()
+            self.test_senkron_login()
             person = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.CLASS_NAME, gc.PERSON)))
             person.click()
             sleep(3)
         def test_aboutcontentrecord(self):
-            self.test_senkron()
+            self.test_senkron_login()
             #hakkında alanına tıklayın
             about = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH, gc.ABOUT)))
             about.click()
@@ -66,7 +73,7 @@ class test_senkron:
             sleep(5)
         
         def test_work(self):
-            self.test_senkron()
+            self.test_senkron_login()
             work = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH, gc.WORK)))
             work.click()
             sleep(5)
@@ -81,4 +88,4 @@ class test_senkron:
             
             
 hello = test_senkron()
-hello.test_work_detail()
+hello.test_senkron_begen_gerial()
