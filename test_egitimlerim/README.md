@@ -134,3 +134,7 @@
 ## SENKRON PYTEST KONTROLÜ
 
 ![Alt text](images/senkronpytest.png)
+
+## ASENKRON PYTEST KONTROLÜ
+
+![Alt text](images/asenkronpytest.png)
