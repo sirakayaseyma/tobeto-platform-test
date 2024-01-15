@@ -20,7 +20,7 @@ class test_menu_bar:
             email.send_keys("sirakaya.seymaa@gmail.com")
             sleep(2)
             psw = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.NAME, gc.PSW_TAG)))
-            psw.send_keys("123456")
+            psw.send_keys("****")
             loginbutton = self.driver.find_element(By.XPATH, gc.GIRIS_YAP_XPATH)
             loginbutton.click()
             sleep(2)
@@ -65,6 +65,7 @@ class test_menu_bar:
             tobetoUstBtn = self.driver.find_element(By.XPATH, gc.TOBETO_SOL_IKON)
             tobetoUstBtn.click()
             sleep(3)
+            
             
         # => Profil Bilgileri ve Oturum kapat kodları yazılacak
 
