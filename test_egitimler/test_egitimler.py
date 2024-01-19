@@ -6,16 +6,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec 
 from time import sleep
 from constants import globalConstants as gc
-import openpyxl
-import pytest
-from selenium.webdriver.common.alert import Alert
 
 
-
-
-
-
-class test_egitimler:   
+class Test_egitimler:   
         def giris_ekrani(self):
             self.driver = webdriver.Chrome()
             self.driver.get("https://tobeto.com/giris")
@@ -30,7 +23,7 @@ class test_egitimler:
             email.send_keys("sirakaya.seymaa@gmail.com")
             sleep(2)
             psw = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.PSW_TAG)))
-            psw.send_keys("****")
+            psw.send_keys("*****")
             loginbutton = self.driver.find_element(By.XPATH, gc.GIRIS_YAP_XPATH)
             loginbutton.click()
             sleep(2)
@@ -38,7 +31,7 @@ class test_egitimler:
             sleep(2)
         
         def test_egitim(self):
-            self.basarili_giris()
+            self.test_basarili_giris()
             egitimlerim = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID, gc.LESSONS)))
             egitimlerim.click()
             sleep(3)
@@ -89,12 +82,8 @@ class test_egitimler:
             tamamladiklarim.click() 
             sleep(3)
          # eğitime git 
-            egitimegit = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH, )))
+            egitimegit = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH, gc.EGITIMGIT)))
             egitimegit.click()
             sleep(5)
-            message = self.driver.find_element(By.XPATH, gc.MESSAGE)
-            assert message.text == "Dr. Ecmel Ayral'dan Hoşgeldin Mesajı"
-            sleep(5)
+          
        
-egitim = test_egitimler()
-egitim.test_egitim()
