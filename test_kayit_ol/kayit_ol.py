@@ -19,7 +19,7 @@ class Test_kayit_ol:
         def test_basarili_kayit(self):
                 self.giris_ekrani()
                 name = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.NAME)))
-                name.send_keys("Şeyma")
+                name.send_keys("Ayşe")
                 surname = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.SURNAME)))
                 surname.send_keys("Sirakaya")
                 email = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.EMAIL)))

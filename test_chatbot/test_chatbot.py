@@ -25,6 +25,8 @@ class Test_Chatbot:
         launcher_button.click()
         sleep(5)
         
+        
+        
     def test_chatbot_icon_close(self):
         self.test_chatbot_icon_open()
         self.driver.switch_to.default_content()
