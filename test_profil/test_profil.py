@@ -9,7 +9,7 @@ import openpyxl
 import pytest
 from selenium.webdriver.common.alert import Alert
 
-class test_profil:   
+class Test_profil:   
         
 
         def  giris_ekrani(self):
@@ -17,7 +17,7 @@ class test_profil:
             self.driver.get("https://tobeto.com/giris")
             self.driver.maximize_window() 
             
-        def test_basarili_giris(self):
+        def basarili_giris(self):
             self.giris_ekrani()
             email = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.NAME, gc.NAME_TAG)))
             email.send_keys("seymaagundogduuu@gmail.com")
@@ -28,8 +28,8 @@ class test_profil:
             loginbutton.click()
             sleep(4)
             
-        def test_profil_bilgilerim(self):
-            self.test_basarili_giris()
+        def profil_bilgilerim(self):
+            self.basarili_giris()
           
             buton_tiklama = self.driver.find_element(By.XPATH, gc.BUTON_TIKLAMA)
             buton_tiklama.click()
@@ -39,15 +39,14 @@ class test_profil:
             sleep(4)
         
         def test_bilgiler_doldur(self):
-            self.test_profil_bilgilerim()
+            self.profil_bilgilerim()
           
             name = self.driver.find_element(By.NAME, gc.NAME)
-            name.send_keys("Şeyma")
-         
+            name.send_keys("")
             surname = self.driver.find_element(By.NAME, gc.SURNAME)
-            surname.send_keys("Sırakaya")
+            surname.send_keys("")
             tel_no = self.driver.find_element(By.XPATH, gc.TEL_NO)
-            tel_no.send_keys(5551115112)
+            tel_no.send_keys("")
             sleep(3)
             birthday_input = self.driver.find_element(By.NAME, "birthday")
 
@@ -56,10 +55,10 @@ class test_profil:
             ## self.driver.execute_script('arguments[0].value = "2023-09-21";', birtday)
             sleep(3)
             identifier =self.driver.find_element(By.NAME, gc.IDENTIFIER)
-            identifier.send_keys("41296941970")
+            identifier.send_keys("")
             sleep(3)
             country = self.driver.find_element(By.NAME, gc.COUNTRY)
-            country.send_keys("TÜRKİYE")
+            country.send_keys("")
             sleep(4)
             city = self.driver.find_element(By.NAME, gc.CITY)
             city.click()
@@ -81,20 +80,17 @@ class test_profil:
             saveBtn = self.driver.find_element(By.XPATH, gc.SAVE_BTN )
             saveBtn.click()
             sleep(3)
-            Error = self.driver.find_element(By.CLASS_NAME , "toast-body")
-            Errors = Error.text == "• Bilgileriniz başarıyla güncellendi."
-            print(f"Bilgiler Güncellendi {Errors}")
+            sonuc = self.driver.find_element(By.CLASS_NAME , "toast-body")
+            sonuc1 = sonuc.text == "• Bilgileriniz başarıyla güncellendi."
+            print(f"Bilgiler Güncellendi {sonuc1}")
             sleep(6)
-            
+        
         def test_bilgiler_bos(self):
-            self.test_profil_bilgilerim()
+            self.profil_bilgilerim()
             saveBtn = self.driver.find_element(By.XPATH, gc.SAVE_BTN )
             saveBtn.click()
-            sleep(3)      
+            sleep(3)  
             
             
             
 
-test = test_profil()
-test.test_bilgiler_doldur()
-test.test_bilgiler_bos()
