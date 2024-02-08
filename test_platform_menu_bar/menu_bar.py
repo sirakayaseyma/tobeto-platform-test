@@ -17,10 +17,10 @@ class test_menu_bar:
         def login(self):
             self.giris_ekrani()
             email = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.NAME, gc.NAME_TAG)))
-            email.send_keys("sirakaya.seymaa@gmail.com")
+            email.send_keys("seymaagundogduuu@gmail.com")
             sleep(2)
             psw = WebDriverWait(self.driver,2).until(ec.visibility_of_element_located((By.NAME, gc.PSW_TAG)))
-            psw.send_keys("****")
+            psw.send_keys("tobeto_test")
             loginbutton = self.driver.find_element(By.XPATH, gc.GIRIS_YAP_XPATH)
             loginbutton.click()
             sleep(2)
@@ -64,12 +64,15 @@ class test_menu_bar:
             sleep(3)
             tobetoUstBtn = self.driver.find_element(By.XPATH, gc.TOBETO_SOL_IKON)
             tobetoUstBtn.click()
-            sleep(3)
+            sleep(13)
             
             
-        # => Profil Bilgileri ve Oturum kapat kodları yazılacak
+    
+            
+            
 
 testClass = test_menu_bar()
 testClass.test_menu_bar_ikon()
 testClass.test_tobeto_ikon()
+
             

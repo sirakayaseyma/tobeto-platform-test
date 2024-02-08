@@ -47,15 +47,7 @@
 
 ![Alt text](images/tobetologo.png)
 
-## Test Case 3: Kullanıcının isminin yazdığı butonun kontrolü Profil Bilgileri ve Oturumu Kapat durumları test edilecektir. 
-#### Ön Koşul: Kullanıcı tobeto.com sayfasına giriş yapmış olmalı.
-#### Adımlar:
-#### 1. Ekranın sağ kısmında bulunan T logosunun yanındaki isim soyisim yazılan alana tıklayın.
-#### 2. "Profil Bilgileri" yazısına tıklayın.
-#### Beklenen Sonuç: Kullanıcı "https://tobeto.com/profilim/profilimi-duzenle/kisisel-bilgilerim" sayfasına erişmelidir.
-#### 3. Sağ üstte bulunan TOBETO yazısına tıklayın.
-#### 4. Ekranın sağ kısmında bulunan T logosunun yanındaki isim soyisim yazılan alana tıklayın.
-#### 5. "Oturumu Kapat" yazısına tıklayın.
-#### Beklenen Sonuç : Kullanıcı "https://tobeto.com/giris" sayfasına erişmelidir.
-#### Beklenen Sonuç: Ad ve soyad bilgisinin yanında aşağı yönü gösteren bir ok bulunmalı. Kullanıcı bu alana tıkladığında açılır pencere şeklinde profil bilgileri ve oturumu kapat butonları yer almalıdır.Profil Bilgileri ve Oturum Kapat butonları tıklanmalı ve ilgili sayfaya yönlendirilmeli. 
 
+## PYTEST KONTROLÜ
+
+![alt text](pytest.png)
