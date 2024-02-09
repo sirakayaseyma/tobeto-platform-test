@@ -42,24 +42,24 @@ class test_profil:
             self.test_profil_bilgilerim()
           
             name = self.driver.find_element(By.NAME, gc.NAME)
-            name.send_keys("Şeyma")
+            name.send_keys("")
          
             surname = self.driver.find_element(By.NAME, gc.SURNAME)
-            surname.send_keys("Sırakaya")
+            surname.send_keys("")
             tel_no = self.driver.find_element(By.XPATH, gc.TEL_NO)
-            tel_no.send_keys(5551115112)
+            tel_no.send_keys("")
             sleep(3)
             birthday_input = self.driver.find_element(By.NAME, "birthday")
 
             # Doğum tarihi gönder
-            birthday_input.send_keys("19-07-1999")  
+            birthday_input.send_keys("")  
             ## self.driver.execute_script('arguments[0].value = "2023-09-21";', birtday)
             sleep(3)
             identifier =self.driver.find_element(By.NAME, gc.IDENTIFIER)
-            identifier.send_keys("41296941970")
+            identifier.send_keys("")
             sleep(3)
             country = self.driver.find_element(By.NAME, gc.COUNTRY)
-            country.send_keys("TÜRKİYE")
+            country.send_keys("")
             sleep(4)
             city = self.driver.find_element(By.NAME, gc.CITY)
             city.click()
@@ -81,20 +81,80 @@ class test_profil:
             saveBtn = self.driver.find_element(By.XPATH, gc.SAVE_BTN )
             saveBtn.click()
             sleep(3)
-            Error = self.driver.find_element(By.CLASS_NAME , "toast-body")
-            Errors = Error.text == "• Bilgileriniz başarıyla güncellendi."
-            print(f"Bilgiler Güncellendi {Errors}")
+            result = self.driver.find_element(By.CLASS_NAME , "toast-body")
+            results = result.text == "• Bilgileriniz başarıyla güncellendi."
+            print(f"Bilgiler Güncellendi {results}")
             sleep(6)
             
         def test_bilgiler_bos(self):
+            
             self.test_profil_bilgilerim()
+            
+            name = self.driver.find_element(By.NAME, gc.NAME)
+            name.clear()  # İlgili alanı temizle
+            name.send_keys("")
+            
+            surname = self.driver.find_element(By.NAME, gc.SURNAME)
+            surname.clear()  # İlgili alanı temizle
+            surname.send_keys("")
+            
+            tel_no = self.driver.find_element(By.XPATH, gc.TEL_NO)
+            tel_no.clear()  # İlgili alanı temizle
+            tel_no.send_keys("")
+            
+            sleep(3)
+            birthday_input = self.driver.find_element(By.NAME, "birthday")
+
+            # Doğum tarihi gönder
+            birthday_input.clear()  # İlgili alanı temizle
+            birthday_input.send_keys("")
+            ## self.driver.execute_script('arguments[0].value = "2023-09-21";', birtday)
+            
+            sleep(3)
+            identifier = self.driver.find_element(By.NAME, gc.IDENTIFIER)
+            identifier.clear()  # İlgili alanı temizle
+            identifier.send_keys("")
+            
+            sleep(3)
+            country = self.driver.find_element(By.NAME, gc.COUNTRY)
+            country.clear()  # İlgili alanı temizle
+            country.send_keys("")
+            
+            sleep(4)
+            city = self.driver.find_element(By.NAME, gc.CITY)
+            city.click()
+            cityName = self.driver.find_element(By.XPATH, gc.CITY_NAME)
+            cityName.click()
+            
+            sleep(3)
+            district = self.driver.find_element(By.NAME, gc.DISTRICT)
+            district.click()
+            districtName = self.driver.find_element(By.XPATH, gc.DISTRICT_NAME)
+            districtName.click()
+            
+            sleep(3)
+            address = self.driver.find_element(By.NAME, gc.ADDRESS)
+            address.clear()  # İlgili alanı temizle
+            address.send_keys("")
+            
+            sleep(2)
+            
+            description = self.driver.find_element(By.XPATH, gc.DESCRIPTION)
+            description.clear()  # İlgili alanı temizle
+            description.send_keys("")
+            
+            sleep(3)
             saveBtn = self.driver.find_element(By.XPATH, gc.SAVE_BTN )
             saveBtn.click()
-            sleep(3)      
+            
+          
+            
+            sleep(6)
+    
             
             
             
 
 test = test_profil()
-test.test_bilgiler_doldur()
+#test.test_bilgiler_doldur()
 test.test_bilgiler_bos()
