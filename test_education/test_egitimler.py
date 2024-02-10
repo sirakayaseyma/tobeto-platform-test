@@ -23,7 +23,7 @@ class Test_egitimler:
             email.send_keys("sirakaya.seymaa@gmail.com")
             sleep(2)
             psw = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.PSW_TAG)))
-            psw.send_keys("*****")
+            psw.send_keys("****")
             loginbutton = self.driver.find_element(By.XPATH, gc.GIRIS_YAP_XPATH)
             loginbutton.click()
             sleep(2)
@@ -32,6 +32,7 @@ class Test_egitimler:
         
         def test_egitim(self):
             self.test_basarili_giris()
+            sleep(5)
             egitimlerim = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.ID, gc.LESSONS)))
             egitimlerim.click()
             sleep(3)

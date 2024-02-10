@@ -98,9 +98,8 @@ class test_profil:
             surname.clear()  # İlgili alanı temizle
             surname.send_keys("")
             
-            tel_no = self.driver.find_element(By.XPATH, gc.TEL_NO)
-            tel_no.clear()  # İlgili alanı temizle
-            tel_no.send_keys("")
+            tel_no = self.driver.find_element(By.XPATH, "//*[@id='phoneNumber']")
+            self.driver.execute_script("arguments[0].value = ' ';", tel_no)
             
             sleep(3)
             birthday_input = self.driver.find_element(By.NAME, "birthday")
@@ -156,5 +155,5 @@ class test_profil:
             
 
 test = test_profil()
-#test.test_bilgiler_doldur()
-test.test_bilgiler_bos()
+test.test_bilgiler_doldur()
+#test.test_bilgiler_bos()
