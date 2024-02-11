@@ -48,5 +48,6 @@
 
 
 
-
+## PYTEST KONTROLÜ 
+![alt text](images/pytest.png)
 
