@@ -25,7 +25,7 @@ class Test_platform:
             email.send_keys("sirakaya.seymaa@gmail.com")
             sleep(2)
             psw = WebDriverWait(self.driver,3).until(ec.visibility_of_element_located((By.NAME, gc.PSW_TAG)))
-            psw.send_keys("123456")
+            psw.send_keys("******")
             loginbutton = self.driver.find_element(By.XPATH, gc.GIRIS_YAP_XPATH)
             loginbutton.click()
             sleep(2)
@@ -55,5 +55,4 @@ class Test_platform:
             sleep(3)
             
 testClass = Test_platform()
-testClass.test_basarili_giris()
 testClass.test_platform()
