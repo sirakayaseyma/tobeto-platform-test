@@ -33,16 +33,31 @@ class test_communication:
         message.send_keys("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s")
         sleep(2)
         
+        # Sayfanın yüksekliğini al
+        page_height = self.driver.execute_script("return document.body.scrollHeight")
+
+        scroll_position = page_height / 2 - 200  # Sayfanın yarısından 200 piksel yukarı
+        self.driver.execute_script("window.scrollTo(0, {});".format(scroll_position))
+
+        # Scroll işleminin tamamlanması için bekleyin
+        sleep(3)
+        
         iframe = self.driver.find_element(By.XPATH, gc.IFRAME )
         self.driver.switch_to.frame(iframe)
-        element_locator4 = (By.ID, gc.RECAPTCHA)
+        sleep(3)
+        
+        element_locator4 = (By.XPATH, gc.RECAPTCHA_CLICK)
         recaptcha = WebDriverWait(self.driver,15).until(ec.visibility_of_element_located(element_locator4))
         recaptcha.click()
+        
         sleep(2)
-        element_locator5 = (By.XPATH, gc.SEND)
-        send = WebDriverWait(self.driver,15).until(ec.visibility_of_element_located(element_locator5))
+        # iframeden çık
+        self.driver.switch_to.default_content()
+        sleep(3)
+        send =  WebDriverWait(self.driver,15).until(ec.visibility_of_element_located((By.XPATH, gc.SEND)))
         send.click()
         sleep(4)
+        
         message = self.driver.find_element(By.CLASS_NAME , "toast-body")
         message2= message.text == "• Mesajınız gönderildi..."
         print(f"İletişim Mesajı {message2}")
