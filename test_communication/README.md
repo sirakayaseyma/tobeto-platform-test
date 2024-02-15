@@ -11,6 +11,10 @@
 #### 4- Recaptha alanını işaretleyin.
 #### 5- Gönder butonuna tıklayın.
 #### Beklenen Sonuç: Mesajınız gönderildi... şeklinde uyarı mesajı gelmelidir. İletişim formu başarıyla gönderildi ekranına yönlendirilmelidir.
+
+![alt text](images/bilgiler.png)
+
+![alt text](images/mesajgonderildi.png)
    
 ## Test Case 2: İletişim için gerekli bölümlerin boş bırakılması test edilecektir.
 #### Adımlar:
@@ -19,17 +23,13 @@
 #### 3- Mesaj alanınını boş bırakın.
 #### 4- Recaptha alanını işaretleyin.
 #### 5- Gönder butonuna tıklayın.
-#### Beklenen Sonuç: Doldurulması zorunlu alanların altında "Doldurulması Zorunlu" şeklinde uyarı mesajı gelmelidir. 
- 
+#### Beklenen Sonuç: Doldurulması zorunlu alanların altında "Doldurulması zorunlu alan*" şeklinde uyarı mesajı gelmelidir. 
 
-## Test Case 3: İletişim için gerekli bölümlerin geçersiz eposta ile gönderilmesi test edilecektir.
-#### Adımlar:
-#### 1- Adınız ve Soyadınız alanını doldurun.
-#### 2- E-mail alanını doldurun.
-##### Data: 123km.com
-#### 3- Mesaj alanınını doldurun.
-#### 4- Recaptha alanını işaretleyin.
-#### 5- Gönder butonuna tıklayın.
-#### Beklenen Sonuç: 'Lütfen e-posta adresine bir "@" işareti ekleyin. "a" adresinde "@" eksik. 'şeklinde uyarı mesajı gelmelidir.
+ ![alt text](images/doldurulmasizorunlu.png)
+
+## PYTEST KONTROLÜ 
+
+![alt text](images/pytest.png)
+
 
  

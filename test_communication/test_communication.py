@@ -11,14 +11,14 @@ import pytest
 from selenium.webdriver.common.alert import Alert
 
 
-class test_communication:
+class Test_communication:
     
     def tobeto(self):
         self.driver = webdriver.Chrome()
         self.driver.get("https://tobeto.com/iletisim")
         self.driver.maximize_window() 
     
-    def communication_success(self):
+    def test_communication_success(self):
         self.tobeto()
         element_locator = (By.XPATH, gc.NAMESURNAME)
         namesurname = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located(element_locator))
@@ -64,7 +64,7 @@ class test_communication:
         print(f"İletişim Mesajı {message2}")
         sleep(6)  
     
-    def communication_empty(self):
+    def test_communication_empty(self):
         self.tobeto()
         # Sayfanın yüksekliğini al
         page_height = self.driver.execute_script("return document.body.scrollHeight")
@@ -106,8 +106,3 @@ class test_communication:
         message_x = message.text == 'Doldurulması zorunlu alan*'
         print(f"Message : {message_x}")
         sleep(2)
-           
-
-testproject = test_communication()
-testproject.communication_success()
-testproject.communication_empty()    

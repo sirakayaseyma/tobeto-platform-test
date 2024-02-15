@@ -5,3 +5,6 @@ IFRAME = '//*[@id="__next"]/div/main/div[3]/section/div[3]/div/div[2]/div/form/d
 RECAPTCHA = 'recaptcha-anchor'
 RECAPTCHA_CLICK = '//*[@id="recaptcha-anchor"]'
 SEND = "//button[@class='btn btn-secondary' and text()='Gönder']"
+NAMESURNAME_X = '//*[@id="__next"]/div/main/div[3]/section/div[3]/div/div[2]/div/form/p[1]'
+EMAIL_X = '//*[@id="__next"]/div/main/div[3]/section/div[3]/div/div[2]/div/form/p[2]'
+MESSAGE_X = '//*[@id="__next"]/div/main/div[3]/section/div[3]/div/div[2]/div/form/p[3]'
