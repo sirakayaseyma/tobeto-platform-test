@@ -1,6 +1,6 @@
 ## Test Senaryosu : tobeto.com sayfası kontrolü yapılacaktır. 
 #### Açıklama : tobeto.com url adresine girildiğinde gözlemlenen ekran kontrol edilecektir. 
-#### Ön koşul : Kullanıcı tobeto.com sayasına eirşmiş olmalıdır.  
+#### Ön koşul : Kullanıcı tobeto.com sayfasına eirşmiş olmalıdır.  
 
 ## Test Case: TOBETO , Biz Kimiz?, Neler Sunuyoruz?, Katolog , Codecademy , Tobeto'da Bu Ay , Başvur, Giriş Yap ve Ücretsiz Üye Ol kısımları test edilecektir.
 #### Adımlar: 
