@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-
-=======
 TOBETO PLATFORMU TEST OTOMASYONU
 ----------------------------------------
 - Yazılım Kalite ve Test Uzmanlığı eğitimi kapsamında bitirme projesi olarak https://tobeto.com/ web sitesine ait otomasyonlar gerçekleştirilmiştir. 
@@ -13,4 +9,4 @@ TOBETO PLATFORMU TEST OTOMASYONU
 - Klasörler içindeki constants/globalConstants içine 'Locators' eklenip anlamlı isimlendirmeler yapılarak daha temiz kod yazmaya yardımcı olur.
 <br><br>
 - data klasörleri json ve excel formatında yer alan değerleri projeme aktarmama yardımcı olur.
->>>>>>> be35023be4ba8ce58a353dfc4ca65287e0279bb1
+
